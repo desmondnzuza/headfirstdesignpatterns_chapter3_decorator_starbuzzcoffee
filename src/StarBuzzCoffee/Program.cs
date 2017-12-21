@@ -9,22 +9,27 @@ namespace StarBuzzCoffee
         static void Main(string[] args)
         {
             Bevarage bevarage = new Espresso();
-            Console.WriteLine($"{bevarage.GetDescription()}: R{bevarage.Cost()}");
+            Print(bevarage);
 
             Bevarage bevarage2 = new DarkRoast();
             bevarage2 = new Mocha(bevarage2);
             bevarage2 = new Mocha(bevarage2);
             bevarage2 = new Whip(bevarage2);
-            Console.WriteLine($"{bevarage2.GetDescription()}: R{bevarage2.Cost()}");
+            Print(bevarage2);
 
             Bevarage bevarage3 = new HouseBlend();
             bevarage3 = new Soy(bevarage3);
             bevarage3 = new Mocha(bevarage3);
             bevarage3 = new Whip(bevarage3);
-            Console.WriteLine($"{bevarage3.GetDescription()}: R{bevarage3.Cost()}");
+            Print(bevarage3);
 
             Console.WriteLine("press any key to exit");
             Console.ReadLine();
+        }
+
+        private static void Print(Bevarage bevarageToPrint)
+        {
+            Console.WriteLine($"{bevarageToPrint.GetDescription()}: R{bevarageToPrint.Cost()}");
         }
     }
 }
